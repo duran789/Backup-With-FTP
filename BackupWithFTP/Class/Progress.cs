@@ -13,7 +13,10 @@ namespace BackupWithFTP.Class
 
         private static Progress instance;
 
-        private Progress() { }
+        private Progress() {
+            this.ProgressValue = 0;
+            this.MaxValue = 100;
+        }
 
         public static Progress Instance
         {

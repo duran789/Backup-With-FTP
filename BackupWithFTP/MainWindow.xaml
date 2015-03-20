@@ -35,8 +35,9 @@
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="3">
             <PasswordBox  Height="23" y:PasswordHelper.Password="{Binding Source={StaticResource Settings}, Path=Default.FTPPassword, Mode=TwoWay}" VerticalAlignment="Top" Width="200"/>
         </StackPanel>
-        <ProgressBar Grid.Column="1" HorizontalAlignment="Left" Name="pbStatus" Height="20"  Grid.Row="4" VerticalAlignment="Top" Width="300" Maximum="{Binding Path=prog.MaxValue}" Value="{Binding Path=prog.ProgressValue}"/>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,95,10"  Grid.Column="1" Grid.Row="4" Text="{Binding ElementName=pbStatus, Path=Value, StringFormat={}{0:0}%}"  />
-        <Button Content="Save" Grid.Column="1" Grid.Row="4" Width="50" Margin="0,0,5,0" VerticalContentAlignment="Top" HorizontalAlignment="Right" Command="{Binding Path=SaveCommand}"/>
+        <ProgressBar Grid.Column="1" HorizontalAlignment="Left" Name="pbStatus" Height="20"  Grid.Row="4" VerticalAlignment="Top" Width="290" Maximum="{Binding Path=prog.MaxValue}" Value="{Binding Path=prog.ProgressValue}"/>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,115,10"  Grid.Column="1" Grid.Row="4" Text="{Binding ElementName=pbStatus, Path=Value, StringFormat={}{0:0}%}"  />
+        <Button Content="Save" Grid.Column="1" Grid.Row="4" Width="50" Margin="0,0,60,0" VerticalContentAlignment="Top" HorizontalAlignment="Right" Command="{Binding Path=SaveCommand}"/>
+        <Button Content="Run" Grid.Column="1" Grid.Row="4" Width="50" Margin="0,0,5,0" VerticalContentAlignment="Top" HorizontalAlignment="Right" Command="{Binding Path=RunCommand}"/>
           </Grid>
 </Window>

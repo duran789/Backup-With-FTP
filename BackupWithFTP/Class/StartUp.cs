@@ -17,7 +17,7 @@ namespace BackupWithFTP.Class
         {
             
         }
-
+        
         public void GetAllFiles(DirectoryInfo dir)
         {
 

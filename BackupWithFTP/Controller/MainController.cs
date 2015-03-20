@@ -17,6 +17,7 @@ namespace BackupWithFTP.Controller
         {
             CreateSelectCommand();
             CreateSaveCommand();
+            CreateRunCommand();
             //  Watcher watch = new Watcher(Properties.Settings.Default.Directory);
         }
 
@@ -55,7 +56,23 @@ namespace BackupWithFTP.Controller
         public void SaveExecute()
         {
             Properties.Settings.Default.Save();
-            DirectoryInfo dir = new DirectoryInfo(Properties.Settings.Default.Directory);
+                       
+        }
+
+        public ICommand RunCommand
+        {
+            get;
+            internal set;
+        }
+
+        private void CreateRunCommand()
+        {
+            RunCommand = new RelayCommand(RunExecute);
+        }
+
+        public void RunExecute()
+        {
+            DirectoryInfo dir = new DirectoryInfo(Properties.Settings.Default.Directory); 
             StartUp start = new StartUp();
             start.GetAllFiles(dir);
             Progress.Instance.MaxValue = start.files.Count();
