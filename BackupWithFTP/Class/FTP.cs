@@ -17,12 +17,14 @@ namespace BackupWithFTP.Class
         private FtpWebResponse ftpResponse = null;
         private Stream ftpStream = null;
         private int bufferSize = 2048;
+        private int versions = 0;
 
-        public FTP(string hostIP, string userName, string password)
+        public FTP(string hostIP, string userName, string password, int versions)
         {
             host = hostIP;
             user = userName;
             pass = password;
+            this.versions = versions;
         }
 
 
@@ -37,7 +39,7 @@ namespace BackupWithFTP.Class
                     string fileName=localFile.Substring(localFile.LastIndexOf('\\')+1);
                     string name = fileName.Substring(0,fileName.LastIndexOf('.') );
                     string ext=fileName.Substring(fileName.LastIndexOf('.') + 1);
-                    for (int i = 4; i > 0; i--)
+                    for (int i = versions; i > 0; i--)
                     {
                         fileName = name + "-" + i.ToString() + "-." + ext;
                         if (CheckFileExists(fileName))

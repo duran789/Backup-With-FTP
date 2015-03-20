@@ -70,5 +70,17 @@ namespace BackupWithFTP.Properties {
                 this["FTPPassword"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        public int Versions {
+            get {
+                return ((int)(this["Versions"]));
+            }
+            set {
+                this["Versions"] = value;
+            }
+        }
     }
 }

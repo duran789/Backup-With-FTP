@@ -9,7 +9,7 @@ namespace BackupWithFTP.Class
 {
     public abstract class GlobalWorker : BackgroundWorker
     {
-        protected FTP ftp = new FTP(Properties.Settings.Default.FTPHost, Properties.Settings.Default.FTPUsername, Properties.Settings.Default.FTPPassword);
+        protected FTP ftp = new FTP(Properties.Settings.Default.FTPHost, Properties.Settings.Default.FTPUsername, Properties.Settings.Default.FTPPassword,Properties.Settings.Default.Versions);
        
 
         public GlobalWorker()
