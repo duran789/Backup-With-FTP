@@ -36,18 +36,19 @@ namespace BackupWithFTP.Class
                 MakeFTPDir(remoteFileName);
                 if (CheckFileExists(remoteFileName))
                 {
+                    string remoteDir = remoteFileName.Substring(0,remoteFileName.LastIndexOf('/')+1);
                     string fileName=localFile.Substring(localFile.LastIndexOf('\\')+1);
                     string name = fileName.Substring(0,fileName.LastIndexOf('.') );
                     string ext=fileName.Substring(fileName.LastIndexOf('.') + 1);
                     for (int i = versions; i > 0; i--)
                     {
                         fileName = name + "-" + i.ToString() + "-." + ext;
-                        if (CheckFileExists(fileName))
+                        if (CheckFileExists(remoteDir+fileName))
                         {
                             
                                 int j = i + 1;
                                 string newFilename = name + "-" + j.ToString() + "-." + ext;
-                                Rename(fileName, newFilename);                     
+                                Rename(remoteDir + fileName, newFilename);                     
                         }
                     }                   
                     Rename(remoteFileName, fileName);

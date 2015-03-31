@@ -75,7 +75,7 @@ namespace BackupWithFTP.Controller
             DirectoryInfo dir = new DirectoryInfo(Properties.Settings.Default.Directory); 
             StartUp start = new StartUp();
             start.GetAllFiles(dir);
-            Progress.Instance.MaxValue = start.files.Count();
+            Progress.Instance.CalcStep(start.files.Count());
             start.SyncAllFiles();
         }
 

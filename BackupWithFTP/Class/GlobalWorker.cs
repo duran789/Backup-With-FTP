@@ -12,7 +12,7 @@ namespace BackupWithFTP.Class
         protected FTP ftp = new FTP(Properties.Settings.Default.FTPHost, Properties.Settings.Default.FTPUsername, Properties.Settings.Default.FTPPassword,Properties.Settings.Default.Versions);
        
 
-        public GlobalWorker()
+        protected GlobalWorker()
         {
             WorkerReportsProgress = true;
             WorkerSupportsCancellation = true;
@@ -24,7 +24,7 @@ namespace BackupWithFTP.Class
 
         protected void GlobalWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            Progress.Instance.ProgressValue = Progress.Instance.ProgressValue + 1;
+            Progress.Instance.UpdateProgressValue();
 
         }
 

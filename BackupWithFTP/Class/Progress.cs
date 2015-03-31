@@ -12,6 +12,7 @@ namespace BackupWithFTP.Class
 
 
         private static Progress instance;
+        private double step = 0;
 
         private Progress() {
             this.ProgressValue = 0;
@@ -30,9 +31,9 @@ namespace BackupWithFTP.Class
             }
         }
 
-        private int progressValue;
+        private double progressValue;
 
-        public int ProgressValue
+        public double ProgressValue
         {
             get { return progressValue; }
             set
@@ -54,6 +55,16 @@ namespace BackupWithFTP.Class
             }
         }
 
+
+        public void CalcStep(int howMuch)
+        {
+            step = 100.00/howMuch;
+        }
+
+        public void UpdateProgressValue()
+        {
+            this.ProgressValue = this.ProgressValue + step;
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(String info)
